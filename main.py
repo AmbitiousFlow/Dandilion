@@ -1,4 +1,6 @@
-from app.app import app
+import sys
+sys.dont_write_bytecode = True
+from app.app import Application
 
 if __name__ == "__main__":
-    app.run()
+    Application().run()
