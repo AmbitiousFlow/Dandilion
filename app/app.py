@@ -1,15 +1,19 @@
-import customtkinter as ctk
-from . import __title__,__icon__,__themes__,__font__
 from app.services.services import DownloadService
 from threading import Thread
 
+import customtkinter as ctk
+
+from . import __title__
+from . import __icon__
+from . import __themes__
+from . import __font__
+
 ctk.set_appearance_mode("System")
-ctk.set_default_color_theme(__themes__ + "\\" + "marsh.json")
+ctk.set_default_color_theme("green")
 
 
 class Application(ctk.CTk):
     _download_serivce: DownloadService
-
     def __init__(self):
         """
         Initialize the Application window with a specific geometry and title.

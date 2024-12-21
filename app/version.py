@@ -1,1 +1,0 @@
-import pyinstaller_versionfile
