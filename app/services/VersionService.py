@@ -2,7 +2,7 @@ import pyinstaller_versionfile
 
 pyinstaller_versionfile.create_versionfile(
     output_file="versionfile.txt",
-    version="1.2.3.4",
+    version="1.0.0v",
     company_name="My Imaginary Company",
     file_description="Dandilion",
     internal_name="Dandilion",

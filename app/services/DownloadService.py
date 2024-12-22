@@ -1,27 +1,30 @@
+from .DownloadServiceAbstract import DownloadServiceAbstract
+from PySide6.QtWidgets import QProgressBar
+from PySide6.QtWidgets import QPlainTextEdit
 from yt_dlp.utils import DownloadError
 from yt_dlp import YoutubeDL
-from customtkinter import CTkTextbox, CTkProgressBar
 
-
-class DownloadService:
-
-    def __init__(self , progress_bar: CTkProgressBar=None , output_area: CTkTextbox=None):
+class DownloadService(DownloadServiceAbstract):
+    
+    def __init__(self , progress_bar:QProgressBar , output_text:QPlainTextEdit):
+        super().__init__()
         self.progress_bar = progress_bar
-        self.output_area  = output_area
+        self.output_text  = output_text
 
-    def on_progress(
-        self, info_dict:dict
-    ): 
+    def on_progress(self , info_dict:dict):
+
         file        = info_dict.get('filname', 'Unknown')
         downloaded  = info_dict.get('downloaded_bytes', 0)
         total       = info_dict.get('total_bytes', 0)
 
         if total:
             percent = int((downloaded / total) * 100)
-            self.progress_bar.set(float(percent) / 100)
-            self.output_area.insert("end", f"Downloading {file}: {downloaded}/{total} bytes ({percent:.2f}%)\n")
-            
-    def download(self, url: str, path: str):
+
+            self.progress_bar.setValue(percent)
+
+            self.output_text.insertPlainText(f"Downloading {file}: {downloaded}/{total} bytes ({percent:.2f}%)\n")
+    
+    def download(self , url:str , path:str , type:str):
         """Downloads a video from youtube and extracts its audio
         into an mp3 file, saving it to the given path.
 
@@ -39,25 +42,27 @@ class DownloadService:
         try:
             self.ydl_opts = {
                 "outtmpl": f"{path}/%(id)s.%(ext)s",
-                "format": "bestaudio/best",
-                "extractaudio": True,
-                "audioformat": "mp3",
                 "ffmpeg_location": "app/bin/ffmpeg.exe",
                 "progress_hooks": [self.on_progress],
-                "postprocessors": [
+            }
+            if type.lower() in ["mp3", "ogg", "wav"]:
+                self.ydl_opts["extractaudio"] = True
+                self.ydl_opts["audioformat"] = type
+                self.ydl_opts["postprocessors"] = [
                     {
                         "key": "FFmpegExtractAudio",
-                        "preferredcodec": "mp3",
+                        "preferredcodec": type,
                         "preferredquality": "0",
                     }
-                ],
-            }
+                ]
+            elif type.lower() in ["mp4"]:
+                self.ydl_opts["format"] = "best"
+
+            # Use YoutubeDL to process the download
             with YoutubeDL(self.ydl_opts) as youtubeClient:
-                streamed_file = youtubeClient.download(url)
+                streamed_file = youtubeClient.download([url])
 
             return {"file": streamed_file}
 
         except DownloadError as e:
             return {"error": str(e)}
-
-

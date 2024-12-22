@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'AppeXbbFy.ui'
+## Form generated from reading UI file 'AppDRyvxs.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
@@ -17,10 +17,9 @@ from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
     QPainter, QPalette, QPixmap, QRadialGradient,
     QTransform)
 from PySide6.QtWidgets import (QApplication, QComboBox, QFrame, QGridLayout,
-    QLabel, QLineEdit, QMainWindow, QMenu,
-    QMenuBar, QPlainTextEdit, QProgressBar, QPushButton,
-    QSizePolicy, QSpacerItem, QStatusBar, QVBoxLayout,
-    QWidget)
+    QLabel, QLineEdit, QMainWindow, QPlainTextEdit,
+    QProgressBar, QPushButton, QSizePolicy, QSpacerItem,
+    QStatusBar, QVBoxLayout, QWidget)
 
 import app.resources.assets_rc as assets_rc
 
@@ -149,18 +148,9 @@ class Ui_Dandilion(object):
         self.gridLayout_2.addItem(self.horizontalSpacer, 0, 0, 1, 1)
 
         Dandilion.setCentralWidget(self.MainGrid)
-        self.menubar = QMenuBar(Dandilion)
-        self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 822, 20))
-        self.menuAbout = QMenu(self.menubar)
-        self.menuAbout.setObjectName(u"menuAbout")
-        Dandilion.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(Dandilion)
         self.statusbar.setObjectName(u"statusbar")
         Dandilion.setStatusBar(self.statusbar)
-
-        self.menubar.addAction(self.menuAbout.menuAction())
-        self.menuAbout.addAction(self.actionAbout)
 
         self.retranslateUi(Dandilion)
 
@@ -176,7 +166,7 @@ class Ui_Dandilion(object):
         self.TitleLabel.setText(QCoreApplication.translate("Dandilion", u"<html><head/><body><p align=\"center\"><span style=\" font-size:24pt; font-weight:700;\">Dandilion</span></p></body></html>", None))
         self.GithubButton.setText(QCoreApplication.translate("Dandilion", u"Github", None))
         self.SettingsButton.setText(QCoreApplication.translate("Dandilion", u"Settings", None))
-        self.WikiButton.setText(QCoreApplication.translate("Dandilion", u"Wiki", None))
+        self.WikiButton.setText(QCoreApplication.translate("Dandilion", u"About", None))
         self.UrlLabel.setText(QCoreApplication.translate("Dandilion", u"<html><head/><body><p align=\"center\">URL</p></body></html>", None))
         self.TypeComboBox.setItemText(0, QCoreApplication.translate("Dandilion", u"MP3", None))
         self.TypeComboBox.setItemText(1, QCoreApplication.translate("Dandilion", u"MP4", None))
@@ -187,6 +177,5 @@ class Ui_Dandilion(object):
         self.DownloadButton.setText(QCoreApplication.translate("Dandilion", u"Download", None))
         self.TypeLabel.setText(QCoreApplication.translate("Dandilion", u"<html><head/><body><p align=\"center\">Type</p></body></html>", None))
         self.OutputAreaBox.setPlainText("")
-        self.menuAbout.setTitle(QCoreApplication.translate("Dandilion", u"Help", None))
     # retranslateUi
 

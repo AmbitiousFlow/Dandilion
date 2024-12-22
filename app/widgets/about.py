@@ -31,6 +31,7 @@ class Ui_About(object):
         icon = QIcon()
         icon.addFile(u":/Icons/icon.ico", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         About.setWindowIcon(icon)
+        
         self.gridLayout = QGridLayout(About)
         self.gridLayout.setObjectName(u"gridLayout")
         self.AboutGrid = QGridLayout()

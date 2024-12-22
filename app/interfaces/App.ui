@@ -81,7 +81,7 @@
       <item>
        <widget class="QPushButton" name="WikiButton">
         <property name="text">
-         <string>Wiki</string>
+         <string>About</string>
         </property>
        </widget>
       </item>
@@ -222,23 +222,6 @@
      </spacer>
     </item>
    </layout>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>822</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <widget class="QMenu" name="menuAbout">
-    <property name="title">
-     <string>Help</string>
-    </property>
-    <addaction name="actionAbout"/>
-   </widget>
-   <addaction name="menuAbout"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionAbout">
