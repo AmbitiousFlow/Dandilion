@@ -19,9 +19,7 @@ class DownloadService(DownloadServiceAbstract):
 
         if total:
             percent = int((downloaded / total) * 100)
-
             self.progress_bar.setValue(percent)
-
             self.output_text.insertPlainText(f"Downloading {file}: {downloaded}/{total} bytes ({percent:.2f}%)\n")
     
     def download(self , url:str , path:str , type:str):
