@@ -14,5 +14,3 @@ class Settings:
                 self.config["path"] = str(Path.home() / "Downloads")
                 with open(__DIRNAME__, "w") as file:
                     json.dump(self.config, file, indent=4)
-
-

@@ -12,7 +12,6 @@ class DownloadService(DownloadServiceAbstract):
         self.output_text  = output_text
 
     def on_progress(self , info_dict:dict):
-
         file        = info_dict.get('filname', 'Unknown')
         downloaded  = info_dict.get('downloaded_bytes', 0)
         total       = info_dict.get('total_bytes', 0)

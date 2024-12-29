@@ -72,13 +72,6 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="SettingsButton">
-        <property name="text">
-         <string>Settings</string>
-        </property>
-       </widget>
-      </item>
-      <item>
        <widget class="QPushButton" name="WikiButton">
         <property name="text">
          <string>About</string>

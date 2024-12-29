@@ -1,14 +1,18 @@
 from app.errors.URLEmptyException import URLEmptyException
 from app.services.DownloadService import DownloadService
-from app.settings.settings import Settings
-from app.widgets.settings import Ui_Settings
-from app.widgets.about import Ui_About
-from app.widgets.app import Ui_Dandilion
-from PyQt6.QtGui import QDesktopServices
-from PySide6.QtCore import QThread, QObject, Signal
-from PySide6.QtWidgets import QApplication, QMessageBox, QMainWindow, QWidget
-from PyQt6.QtCore import QUrl
-from pathlib import Path
+from app.settings.settings        import Settings
+from app.widgets.about            import Ui_About
+from app.widgets.app              import Ui_Dandilion
+from PyQt6.QtGui                  import QDesktopServices
+from PySide6.QtCore               import QThread
+from PySide6.QtCore               import QObject
+from PySide6.QtCore               import Signal
+from PySide6.QtWidgets            import QApplication
+from PySide6.QtWidgets            import QMessageBox
+from PySide6.QtWidgets            import QMainWindow
+from PySide6.QtWidgets            import QWidget
+from PyQt6.QtCore                 import QUrl
+from pathlib                      import Path
 import sys
 
 class DownloadWorker(QObject):
@@ -31,13 +35,20 @@ class DownloadWorker(QObject):
             self.finished.emit()
 
 class Application:
-
+    """
+    The Application class initializes and sets up the main application, including
+    the main window, about window, and settings window. It also manages the download
+    service and its associated thread.
+    """
     main_widget = Ui_Dandilion()
     about_widget = Ui_About()
-    settings_widget = Ui_Settings()
     settings_config = Settings()
-
     def __init__(self):
+        """
+        Initializes the Application class by setting up the QApplication, main window,
+        about window, and settings window. It also configures the application style
+        and sets up the UI components and services.
+        """
         # Injecting
         self.app = QApplication(sys.argv)
         self.main_window = QMainWindow()
@@ -47,7 +58,6 @@ class Application:
         # Setting Up
         self.main_widget.setupUi(self.main_window)
         self.about_widget.setupUi(self.about_window)
-        self.settings_widget.setupUi(self.settings_window)
         # Services
         self.download_service = DownloadService(
             self.main_widget.DownloadProgressBar, self.main_widget.OutputAreaBox
@@ -86,9 +96,7 @@ class Application:
     def set_actions(self):
         url = QUrl('https://github.com/Kyle-Myre')
         self.main_widget.DownloadButton.clicked.connect(self.start_download)
-        self.main_widget.SettingsButton.clicked.connect(self.settings_window.show)
         self.main_widget.WikiButton.clicked.connect(self.about_window.show)
-        self.settings_widget.pushButton_2.clicked.connect(self.settings_window.close)
         self.main_widget.GithubButton.clicked.connect(lambda: QDesktopServices.openUrl(url))
 
     def run(self):

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'AppDRyvxs.ui'
+## Form generated from reading UI file 'AppZbGPLm.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
@@ -61,11 +61,6 @@ class Ui_Dandilion(object):
         self.GithubButton.setFlat(False)
 
         self.verticalLayout.addWidget(self.GithubButton)
-
-        self.SettingsButton = QPushButton(self.MainGrid)
-        self.SettingsButton.setObjectName(u"SettingsButton")
-
-        self.verticalLayout.addWidget(self.SettingsButton)
 
         self.WikiButton = QPushButton(self.MainGrid)
         self.WikiButton.setObjectName(u"WikiButton")
@@ -165,7 +160,6 @@ class Ui_Dandilion(object):
         self.actionAbout.setText(QCoreApplication.translate("Dandilion", u"About", None))
         self.TitleLabel.setText(QCoreApplication.translate("Dandilion", u"<html><head/><body><p align=\"center\"><span style=\" font-size:24pt; font-weight:700;\">Dandilion</span></p></body></html>", None))
         self.GithubButton.setText(QCoreApplication.translate("Dandilion", u"Github", None))
-        self.SettingsButton.setText(QCoreApplication.translate("Dandilion", u"Settings", None))
         self.WikiButton.setText(QCoreApplication.translate("Dandilion", u"About", None))
         self.UrlLabel.setText(QCoreApplication.translate("Dandilion", u"<html><head/><body><p align=\"center\">URL</p></body></html>", None))
         self.TypeComboBox.setItemText(0, QCoreApplication.translate("Dandilion", u"MP3", None))
