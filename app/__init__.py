@@ -58,6 +58,8 @@ class Application:
         # Setting Up
         self.main_widget.setupUi(self.main_window)
         self.about_widget.setupUi(self.about_window)
+        self.main_window.setFixedSize(836, 324)
+        self.about_window.setFixedSize(400, 125)
         # Services
         self.download_service = DownloadService(
             self.main_widget.DownloadProgressBar, self.main_widget.OutputAreaBox
