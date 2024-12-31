@@ -3,7 +3,7 @@ from app.services.DownloadService import DownloadService
 from app.settings.settings        import Settings
 from app.widgets.about            import Ui_About
 from app.widgets.app              import Ui_Dandilion
-from PyQt6.QtGui                  import QDesktopServices
+from PySide6.QtGui                import QDesktopServices
 from PySide6.QtCore               import QThread
 from PySide6.QtCore               import QObject
 from PySide6.QtCore               import Signal
@@ -11,8 +11,7 @@ from PySide6.QtWidgets            import QApplication
 from PySide6.QtWidgets            import QMessageBox
 from PySide6.QtWidgets            import QMainWindow
 from PySide6.QtWidgets            import QWidget
-from PyQt6.QtCore                 import QUrl
-from pathlib                      import Path
+from PySide6.QtCore               import QUrl
 import sys
 
 class DownloadWorker(QObject):
@@ -68,9 +67,12 @@ class Application:
         self.set_actions()
 
     def start_download(self):
+
         if self.main_widget.UrlEntry.text() == "":
             self.show_error_message("Empty URL Warning", "Please provide a URL.")
             return
+        
+        self.main_widget.OutputAreaBox.insertPlainText("Starting download...\n")
 
         url = self.main_widget.UrlEntry.text()
         path = self.settings_config.config['path']
