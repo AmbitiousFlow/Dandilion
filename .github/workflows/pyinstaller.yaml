@@ -4,7 +4,10 @@ on: [push, pull_request]
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest]
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
@@ -22,5 +25,5 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
-        name: Dandilion
+        name: Dandilion-${{ matrix.os }}
         path: dist/Dandilion
