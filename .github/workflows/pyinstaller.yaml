@@ -22,7 +22,7 @@ jobs:
     - name: Ensure assets directory exists
       run: mkdir -p assets
     - name: Copy icon file
-      run: cp path/to/your/icon.ico assets/icon.ico
+      run: cp app/resources/icon.ico assets/icon.ico
     - name: Build with PyInstaller
       run: |
         pyinstaller --onefile --name Dandilion --add-data "app:app" --icon=assets/icon.ico main.py
