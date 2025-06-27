@@ -6,6 +6,8 @@ if __name__ == "__main__":
     from app.app import App
 
     app = QApplication(sys.argv)
+
     window = App()
     window.show()
+
     sys.exit(app.exec())

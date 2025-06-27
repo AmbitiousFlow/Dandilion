@@ -1,4 +1,4 @@
-from IDownloadService import IDownloadService
+from app.services.IDownloadService import IDownloadService
 from PySide6.QtWidgets import QWidget
 from app.models.Media import Media
 from yt_dlp import YoutubeDL
