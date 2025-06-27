@@ -1,5 +1,7 @@
 # 🎵 Dandilion
 
+**Note : The Application is working with minor bugs however i won't be adding too much features**
+
 **An open-source desktop application built with PySide6 that allows users to convert YouTube links into various media formats such as MP3, MP4, and more.**
 
 ## ✨ Features
