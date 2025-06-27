@@ -3,7 +3,7 @@ from PySide6.QtWidgets import QWidget
 
 class IDownloadService(ABC):
     
-    def download(self, url: str, destination: str) -> None:
+    def download(self, url: str, format : str , destination: str) -> None:
         """
         Downloads a file from the given URL to the specified destination.
         :param url: The URL of the file to download.

@@ -4,20 +4,30 @@ import os
 
 current_dir = os.path.dirname(__file__)
 
-ffmpeg_path = os.path.abspath(os.path.join(current_dir, '..', 'libs', 'ffmpeg', 'bin', 'ffmpeg.exe'))
+ffmpeg_path = os.path.abspath(
+    os.path.join(current_dir, "..", "libs", "ffmpeg", "bin", "ffmpeg.exe")
+)
 
 
-def download_video(url : str): 
+def download_video(url: str, callback, destination: str = ".") -> None:
     
-    yt = YoutubeDL()
-    yt.download([url])
+    options = {
+        "outtmpl": f"{destination}\%(title)s.%(ext)s",
+        "ffmpeg_location": ffmpeg_path,
+        "progress_hooks": [callback],
+    }
 
-def download_audio(url: str):
+    with YoutubeDL(options) as ydl:
+        ydl.download([url])
+
+
+def download_audio(url: str, callback, destination: str = ".") -> None:
 
     options = {
         "format": "bestaudio/best",
-        "outtmpl": "%(title)s.%(ext)s",
+        "outtmpl": f"{destination}\%(title)s.%(ext)s",
         "ffmpeg_location": ffmpeg_path,
+        "progress_hooks": [callback],
         "postprocessors": [
             {
                 "key": "FFmpegExtractAudio",
