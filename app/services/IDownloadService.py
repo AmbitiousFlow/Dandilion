@@ -1,5 +1,5 @@
 from abc import ABC
-
+from PySide6.QtWidgets import QWidget
 
 class IDownloadService(ABC):
     
@@ -11,7 +11,7 @@ class IDownloadService(ABC):
         """
         pass
 
-    def download_with_progress(self, url: str, destination: str) -> None:
+    def download_with_progress(self, url: str, destination: str , widget : QWidget) -> None:
         """
         Downloads a file from the given URL to the specified destination with progress tracking.
         :param url: The URL of the file to download.
