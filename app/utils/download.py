@@ -12,7 +12,7 @@ ffmpeg_path = os.path.abspath(
 def download_video(url: str, callback, destination: str = ".") -> None:
     
     options = {
-        "outtmpl": f"{destination}\%(title)s.%(ext)s",
+        "outtmpl": f"{destination}\\%(title)s.%(ext)s",
         "ffmpeg_location": ffmpeg_path,
         "progress_hooks": [callback],
     }
@@ -25,7 +25,7 @@ def download_audio(url: str, callback, destination: str = ".") -> None:
 
     options = {
         "format": "bestaudio/best",
-        "outtmpl": f"{destination}\%(title)s.%(ext)s",
+        "outtmpl": f"{destination}\\%(title)s.%(ext)s",
         "ffmpeg_location": ffmpeg_path,
         "progress_hooks": [callback],
         "postprocessors": [

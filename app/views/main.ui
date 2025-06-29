@@ -199,44 +199,12 @@
            <string>MP4</string>
           </property>
          </item>
-         <item>
-          <property name="text">
-           <string>WAV</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>OGG</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>WEBM</string>
-          </property>
-         </item>
         </widget>
        </item>
       </layout>
      </widget>
     </item>
    </layout>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>898</width>
-     <height>33</height>
-    </rect>
-   </property>
-   <widget class="QMenu" name="menuAbout">
-    <property name="title">
-     <string>Help</string>
-    </property>
-    <addaction name="actionAbout"/>
-   </widget>
-   <addaction name="menuAbout"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionAbout">
