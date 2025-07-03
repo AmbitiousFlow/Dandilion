@@ -3,7 +3,7 @@ if __name__ == "__main__":
     from PySide6.QtWidgets import QApplication
 
     sys.dont_write_bytecode = True
-    from app.app import App
+    from desktop.app import App
 
     app = QApplication(sys.argv)
 
